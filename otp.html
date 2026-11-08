@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Verify your order — ReadNova</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="./"><span class="brand-mark">R</span> Read<span>Nova</span></a>
+  <nav><a href="./">Explore books</a></nav>
+  <a class="cart-pill" href="./">Back to library</a>
+</header>
+<main class="otp-page">
+  <section class="otp-card">
+    <div class="otp-lock">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    </div>
+    <p class="eyebrow">SECURE VERIFICATION</p>
+    <h1>You're one step away</h1>
+    <p class="otp-sub">Enter the 6-digit code we just sent to the phone registered on your card to finish your order.</p>
+    <div class="otp-summary">
+      <div><span>Book</span><strong id="otp-book">—</strong></div>
+      <div><span>Card</span><strong id="otp-card">•••• ••••</strong></div>
+      <div><span>Amount</span><strong>$5.00 USD</strong></div>
+    </div>
+    <div class="otp-boxes" id="otp-boxes">
+      <input type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="1" aria-label="Digit 1">
+      <input type="text" inputmode="numeric" maxlength="1" aria-label="Digit 2">
+      <input type="text" inputmode="numeric" maxlength="1" aria-label="Digit 3">
+      <input type="text" inputmode="numeric" maxlength="1" aria-label="Digit 4">
+      <input type="text" inputmode="numeric" maxlength="1" aria-label="Digit 5">
+      <input type="text" inputmode="numeric" maxlength="1" aria-label="Digit 6">
+    </div>
+    <p class="otp-timer" id="otp-timer">Code expires in 05:00</p>
+    <button class="confirm-btn" id="otp-submit" type="button" disabled>VERIFY CODE <span>↗</span></button>
+    <p class="fine-print">Never share this code with anyone.</p>
+    <div id="form-status" role="status" class="form-status" hidden></div>
+    <a class="otp-resend" href="./" id="otp-resend">Didn't get a code? Start again</a>
+  </section>
+</main>
+<script src="config.js"></script>
+<script src="otp.js"></script>
+</body>
+</html>
